@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\playercharacter.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\intermediate\\build\\win64\\x64\\rtsmechanicseditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsgridsystem\\definitions.rtsgridsystem.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\public\\playercharacter.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\playercharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

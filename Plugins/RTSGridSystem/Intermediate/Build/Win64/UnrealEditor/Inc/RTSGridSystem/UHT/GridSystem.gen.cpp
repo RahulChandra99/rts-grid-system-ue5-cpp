@@ -10,6 +10,8 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGridSystem() {}
 // Cross Module References
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_UHierarchicalInstancedStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
@@ -18,6 +20,100 @@ void EmptyLinkFunctionForGeneratedCodeGridSystem() {}
 	RTSGRIDSYSTEM_API UScriptStruct* Z_Construct_UScriptStruct_FGridCoord();
 	UPackage* Z_Construct_UPackage__Script_RTSGridSystem();
 // End Cross Module References
+	DEFINE_FUNCTION(AGridSystem::execGetCellIDFromCoordinate)
+	{
+		P_GET_STRUCT(FGridCoord,Z_Param_Coordinate);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetCellIDFromCoordinate(Z_Param_Coordinate);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetCoordinateFromCellID)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_ID);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FGridCoord*)Z_Param__Result=P_THIS->GetCoordinateFromCellID(Z_Param_ID);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetCoordinateFromRelative)
+	{
+		P_GET_STRUCT(FVector,Z_Param_RelativeLocation);
+		P_GET_PROPERTY_REF(FIntProperty,Z_Param_Out_CellID);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FGridCoord*)Z_Param__Result=P_THIS->GetCoordinateFromRelative(Z_Param_RelativeLocation,Z_Param_Out_CellID);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execIsValidLocation)
+	{
+		P_GET_STRUCT(FGridCoord,Z_Param_Coordinate);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsValidLocation(Z_Param_Coordinate);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execIsClearTile)
+	{
+		P_GET_STRUCT(FGridCoord,Z_Param_Coordinate);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsClearTile(Z_Param_Coordinate);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execIsInGridBounds)
+	{
+		P_GET_STRUCT(FGridCoord,Z_Param_Coordinate);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsInGridBounds(Z_Param_Coordinate);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetCellCenterFromRelative)
+	{
+		P_GET_STRUCT(FVector,Z_Param_RelativeLocation);
+		P_GET_UBOOL(Z_Param_bReturnWorldSpace);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector*)Z_Param__Result=P_THIS->GetCellCenterFromRelative(Z_Param_RelativeLocation,Z_Param_bReturnWorldSpace);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetGridRelativeFromWorld)
+	{
+		P_GET_STRUCT(FVector,Z_Param_WorldLocation);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector*)Z_Param__Result=P_THIS->GetGridRelativeFromWorld(Z_Param_WorldLocation);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetGridExtents)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector2D*)Z_Param__Result=P_THIS->GetGridExtents();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetGridSize)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector2D*)Z_Param__Result=P_THIS->GetGridSize();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetGridOriginWorld)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector*)Z_Param__Result=P_THIS->GetGridOriginWorld();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGridSystem::execGetGridOriginRelative)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector*)Z_Param__Result=P_THIS->GetGridOriginRelative();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AGridSystem::execGenerateGrid)
 	{
 		P_FINISH;
@@ -30,6 +126,18 @@ void EmptyLinkFunctionForGeneratedCodeGridSystem() {}
 		UClass* Class = AGridSystem::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GenerateGrid", &AGridSystem::execGenerateGrid },
+			{ "GetCellCenterFromRelative", &AGridSystem::execGetCellCenterFromRelative },
+			{ "GetCellIDFromCoordinate", &AGridSystem::execGetCellIDFromCoordinate },
+			{ "GetCoordinateFromCellID", &AGridSystem::execGetCoordinateFromCellID },
+			{ "GetCoordinateFromRelative", &AGridSystem::execGetCoordinateFromRelative },
+			{ "GetGridExtents", &AGridSystem::execGetGridExtents },
+			{ "GetGridOriginRelative", &AGridSystem::execGetGridOriginRelative },
+			{ "GetGridOriginWorld", &AGridSystem::execGetGridOriginWorld },
+			{ "GetGridRelativeFromWorld", &AGridSystem::execGetGridRelativeFromWorld },
+			{ "GetGridSize", &AGridSystem::execGetGridSize },
+			{ "IsClearTile", &AGridSystem::execIsClearTile },
+			{ "IsInGridBounds", &AGridSystem::execIsInGridBounds },
+			{ "IsValidLocation", &AGridSystem::execIsValidLocation },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -68,6 +176,486 @@ void EmptyLinkFunctionForGeneratedCodeGridSystem() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GenerateGrid_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics
+	{
+		struct GridSystem_eventGetCellCenterFromRelative_Parms
+		{
+			FVector RelativeLocation;
+			bool bReturnWorldSpace;
+			FVector ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_RelativeLocation;
+		static void NewProp_bReturnWorldSpace_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bReturnWorldSpace;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_RelativeLocation = { "RelativeLocation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCellCenterFromRelative_Parms, RelativeLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	void Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_bReturnWorldSpace_SetBit(void* Obj)
+	{
+		((GridSystem_eventGetCellCenterFromRelative_Parms*)Obj)->bReturnWorldSpace = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_bReturnWorldSpace = { "bReturnWorldSpace", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(GridSystem_eventGetCellCenterFromRelative_Parms), &Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_bReturnWorldSpace_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCellCenterFromRelative_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_RelativeLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_bReturnWorldSpace,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetCellCenterFromRelative", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::GridSystem_eventGetCellCenterFromRelative_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::GridSystem_eventGetCellCenterFromRelative_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics
+	{
+		struct GridSystem_eventGetCellIDFromCoordinate_Parms
+		{
+			FGridCoord Coordinate;
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Coordinate;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::NewProp_Coordinate = { "Coordinate", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCellIDFromCoordinate_Parms, Coordinate), Z_Construct_UScriptStruct_FGridCoord, METADATA_PARAMS(0, nullptr) }; // 532030403
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCellIDFromCoordinate_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::NewProp_Coordinate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetCellIDFromCoordinate", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::GridSystem_eventGetCellIDFromCoordinate_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::GridSystem_eventGetCellIDFromCoordinate_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics
+	{
+		struct GridSystem_eventGetCoordinateFromCellID_Parms
+		{
+			int32 ID;
+			FGridCoord ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ID;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::NewProp_ID = { "ID", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCoordinateFromCellID_Parms, ID), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCoordinateFromCellID_Parms, ReturnValue), Z_Construct_UScriptStruct_FGridCoord, METADATA_PARAMS(0, nullptr) }; // 532030403
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::NewProp_ID,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetCoordinateFromCellID", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::GridSystem_eventGetCoordinateFromCellID_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::GridSystem_eventGetCoordinateFromCellID_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics
+	{
+		struct GridSystem_eventGetCoordinateFromRelative_Parms
+		{
+			FVector RelativeLocation;
+			int32 CellID;
+			FGridCoord ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_RelativeLocation;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_CellID;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::NewProp_RelativeLocation = { "RelativeLocation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCoordinateFromRelative_Parms, RelativeLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::NewProp_CellID = { "CellID", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCoordinateFromRelative_Parms, CellID), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetCoordinateFromRelative_Parms, ReturnValue), Z_Construct_UScriptStruct_FGridCoord, METADATA_PARAMS(0, nullptr) }; // 532030403
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::NewProp_RelativeLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::NewProp_CellID,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetCoordinateFromRelative", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::GridSystem_eventGetCoordinateFromRelative_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14C20401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::GridSystem_eventGetCoordinateFromRelative_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics
+	{
+		struct GridSystem_eventGetGridExtents_Parms
+		{
+			FVector2D ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetGridExtents_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetGridExtents", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::GridSystem_eventGetGridExtents_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::GridSystem_eventGetGridExtents_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetGridExtents()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetGridExtents_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics
+	{
+		struct GridSystem_eventGetGridOriginRelative_Parms
+		{
+			FVector ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetGridOriginRelative_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetGridOriginRelative", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::GridSystem_eventGetGridOriginRelative_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::GridSystem_eventGetGridOriginRelative_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetGridOriginRelative()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetGridOriginRelative_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics
+	{
+		struct GridSystem_eventGetGridOriginWorld_Parms
+		{
+			FVector ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetGridOriginWorld_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetGridOriginWorld", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::GridSystem_eventGetGridOriginWorld_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::GridSystem_eventGetGridOriginWorld_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetGridOriginWorld()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetGridOriginWorld_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics
+	{
+		struct GridSystem_eventGetGridRelativeFromWorld_Parms
+		{
+			FVector WorldLocation;
+			FVector ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_WorldLocation;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::NewProp_WorldLocation = { "WorldLocation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetGridRelativeFromWorld_Parms, WorldLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetGridRelativeFromWorld_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::NewProp_WorldLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetGridRelativeFromWorld", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::GridSystem_eventGetGridRelativeFromWorld_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::GridSystem_eventGetGridRelativeFromWorld_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_GetGridSize_Statics
+	{
+		struct GridSystem_eventGetGridSize_Parms
+		{
+			FVector2D ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventGetGridSize_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "GetGridSize", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::GridSystem_eventGetGridSize_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::GridSystem_eventGetGridSize_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_GetGridSize()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_GetGridSize_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_IsClearTile_Statics
+	{
+		struct GridSystem_eventIsClearTile_Parms
+		{
+			FGridCoord Coordinate;
+			bool ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Coordinate;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::NewProp_Coordinate = { "Coordinate", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventIsClearTile_Parms, Coordinate), Z_Construct_UScriptStruct_FGridCoord, METADATA_PARAMS(0, nullptr) }; // 532030403
+	void Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((GridSystem_eventIsClearTile_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(GridSystem_eventIsClearTile_Parms), &Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::NewProp_Coordinate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "IsClearTile", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::GridSystem_eventIsClearTile_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::GridSystem_eventIsClearTile_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_IsClearTile()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_IsClearTile_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics
+	{
+		struct GridSystem_eventIsInGridBounds_Parms
+		{
+			FGridCoord Coordinate;
+			bool ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Coordinate;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::NewProp_Coordinate = { "Coordinate", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventIsInGridBounds_Parms, Coordinate), Z_Construct_UScriptStruct_FGridCoord, METADATA_PARAMS(0, nullptr) }; // 532030403
+	void Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((GridSystem_eventIsInGridBounds_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(GridSystem_eventIsInGridBounds_Parms), &Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::NewProp_Coordinate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "IsInGridBounds", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::GridSystem_eventIsInGridBounds_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::GridSystem_eventIsInGridBounds_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_IsInGridBounds()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_IsInGridBounds_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics
+	{
+		struct GridSystem_eventIsValidLocation_Parms
+		{
+			FGridCoord Coordinate;
+			bool ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Coordinate;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::NewProp_Coordinate = { "Coordinate", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GridSystem_eventIsValidLocation_Parms, Coordinate), Z_Construct_UScriptStruct_FGridCoord, METADATA_PARAMS(0, nullptr) }; // 532030403
+	void Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((GridSystem_eventIsValidLocation_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(GridSystem_eventIsValidLocation_Parms), &Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::NewProp_Coordinate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Grids" },
+		{ "ModuleRelativePath", "Public/GridSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGridSystem, nullptr, "IsValidLocation", nullptr, nullptr, Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::GridSystem_eventIsValidLocation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::GridSystem_eventIsValidLocation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGridSystem_IsValidLocation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGridSystem_IsValidLocation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -135,6 +723,18 @@ void EmptyLinkFunctionForGeneratedCodeGridSystem() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGridSystem_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGridSystem_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGridSystem_GenerateGrid, "GenerateGrid" }, // 895073646
+		{ &Z_Construct_UFunction_AGridSystem_GetCellCenterFromRelative, "GetCellCenterFromRelative" }, // 978253231
+		{ &Z_Construct_UFunction_AGridSystem_GetCellIDFromCoordinate, "GetCellIDFromCoordinate" }, // 3737919372
+		{ &Z_Construct_UFunction_AGridSystem_GetCoordinateFromCellID, "GetCoordinateFromCellID" }, // 3131799985
+		{ &Z_Construct_UFunction_AGridSystem_GetCoordinateFromRelative, "GetCoordinateFromRelative" }, // 1208236179
+		{ &Z_Construct_UFunction_AGridSystem_GetGridExtents, "GetGridExtents" }, // 2584351923
+		{ &Z_Construct_UFunction_AGridSystem_GetGridOriginRelative, "GetGridOriginRelative" }, // 4082092290
+		{ &Z_Construct_UFunction_AGridSystem_GetGridOriginWorld, "GetGridOriginWorld" }, // 3787741535
+		{ &Z_Construct_UFunction_AGridSystem_GetGridRelativeFromWorld, "GetGridRelativeFromWorld" }, // 4044963774
+		{ &Z_Construct_UFunction_AGridSystem_GetGridSize, "GetGridSize" }, // 1103412151
+		{ &Z_Construct_UFunction_AGridSystem_IsClearTile, "IsClearTile" }, // 3567668920
+		{ &Z_Construct_UFunction_AGridSystem_IsInGridBounds, "IsInGridBounds" }, // 4178233713
+		{ &Z_Construct_UFunction_AGridSystem_IsValidLocation, "IsValidLocation" }, // 1170549333
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGridSystem_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -274,15 +874,15 @@ void EmptyLinkFunctionForGeneratedCodeGridSystem() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGridSystem);
 	AGridSystem::~AGridSystem() {}
-	struct Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_RTSMechanics_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics
+	struct Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_RTSMechanics_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGridSystem, AGridSystem::StaticClass, TEXT("AGridSystem"), &Z_Registration_Info_UClass_AGridSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridSystem), 1905543735U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGridSystem, AGridSystem::StaticClass, TEXT("AGridSystem"), &Z_Registration_Info_UClass_AGridSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridSystem), 3094102783U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_RTSMechanics_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_2313154669(TEXT("/Script/RTSGridSystem"),
-		Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_RTSMechanics_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_RTSMechanics_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_1620531597(TEXT("/Script/RTSGridSystem"),
+		Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGridSystem_Source_RTSGridSystem_Public_GridSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

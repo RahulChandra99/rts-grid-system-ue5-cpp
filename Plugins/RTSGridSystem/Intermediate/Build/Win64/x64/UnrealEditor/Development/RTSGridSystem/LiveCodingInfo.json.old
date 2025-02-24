@@ -2,12 +2,18 @@
 	"RemapUnityFiles": 
 	{
 		"Module.RTSGridSystem.cpp.obj": [
-			"GridCoords.gen.cpp.obj",
-			"GridFunctionLibrary.gen.cpp.obj",
-			"RTSGridSystem.init.gen.cpp.obj",
+			"BuildingBase.gen.cpp.obj",
 			"GridCoords.cpp.obj",
 			"GridFunctionLibrary.cpp.obj",
-			"RTSGridSystem.cpp.obj"
+			"RTSGridSystem.cpp.obj",
+			"GridCoords.gen.cpp.obj",
+			"GridFunctionLibrary.gen.cpp.obj",
+			"GridSystem.gen.cpp.obj",
+			"PlayerCharacter.gen.cpp.obj",
+			"RTSGridSystem.init.gen.cpp.obj",
+			"BuildingBase.cpp.obj",
+			"GridSystem.cpp.obj",
+			"PlayerCharacter.cpp.obj"
 		]
 	}
 }

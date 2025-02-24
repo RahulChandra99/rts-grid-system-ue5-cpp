@@ -257,6 +257,7 @@
 /I "Developer\PhysicsUtilities\Public"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\WidgetRegistration\UHT"
 /I "Developer\WidgetRegistration\Public"
+/I "D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Plugins\RTSGridSystem\Intermediate\Build\Win64\UnrealEditor\Inc\RTSGridSystem\UHT"
 /I "D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Plugins\RTSGridSystem\Source"
 /I "D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Plugins\RTSGridSystem\Source\RTSGridSystem\Public"
 /external:W0

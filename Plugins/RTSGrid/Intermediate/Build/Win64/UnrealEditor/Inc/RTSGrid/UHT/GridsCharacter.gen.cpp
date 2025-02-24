@@ -101,6 +101,10 @@ void EmptyLinkFunctionForGeneratedCodeGridsCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LookAction_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_LookAction;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LMBAction_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_LMBAction;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -235,6 +239,13 @@ void EmptyLinkFunctionForGeneratedCodeGridsCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridsCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LookAction_MetaData), Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LookAction_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LMBAction_MetaData[] = {
+		{ "Category", "RTSCamera" },
+		{ "ModuleRelativePath", "Public/GridsCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LMBAction = { "LMBAction", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridsCharacter, LMBAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LMBAction_MetaData), Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LMBAction_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridsCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridsCharacter_Statics::NewProp_SpringArm,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridsCharacter_Statics::NewProp_Camera,
@@ -252,6 +263,7 @@ void EmptyLinkFunctionForGeneratedCodeGridsCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridsCharacter_Statics::NewProp_CameraHeightAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridsCharacter_Statics::NewProp_RotateAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LookAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridsCharacter_Statics::NewProp_LMBAction,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGridsCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGridsCharacter>::IsAbstract,
@@ -291,9 +303,9 @@ void EmptyLinkFunctionForGeneratedCodeGridsCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridsCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGridsCharacter, AGridsCharacter::StaticClass, TEXT("AGridsCharacter"), &Z_Registration_Info_UClass_AGridsCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridsCharacter), 275418803U) },
+		{ Z_Construct_UClass_AGridsCharacter, AGridsCharacter::StaticClass, TEXT("AGridsCharacter"), &Z_Registration_Info_UClass_AGridsCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridsCharacter), 1996207988U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridsCharacter_h_704515912(TEXT("/Script/RTSGrid"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridsCharacter_h_1851872958(TEXT("/Script/RTSGrid"),
 		Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridsCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridsCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

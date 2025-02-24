@@ -37,7 +37,7 @@ AGridsCharacter::AGridsCharacter()
 	MoveSpeed = FVector2D(500,500);
 	ScreenEdgePadding = FVector2D(50,50);
 
-	CameraHeightSpeed = 700;
+	CameraHeightSpeed = 1300;
 	RotationSpeed = 500;
 	bShouldRotate = false;
 	
@@ -100,32 +100,25 @@ void AGridsCharacter::Tick(float DeltaTime)
 	const auto NextLocation = GetActorLocation() + Forward + SideWays;
 	SetActorLocation(NextLocation);
 	
-	if (!Controller)
-	{
-		return;
-	}
+	if (!Controller) return;
 
 	FHitResult HitResult;
 	bool HasHit = Controller->GetHitResultUnderCursorByChannel(ETraceTypeQuery::TraceTypeQuery1, true, HitResult);
 
-	if (!HasHit)
-	{
-		return;
-	}
+	if (!HasHit) return;
 
 	AGridSystem* Grid = Cast<AGridSystem>(HitResult.GetActor());
-	if (Grid && !TargetGrid)
+	if (Grid)
 	{
 		TargetGrid = Grid;
-		return;
+		PlacementLocation = TargetGrid->GetGridRelativeFromWorld(HitResult.Location);
 	}
 
-	PlacementLocation = TargetGrid->GetGridRelativeFromWorld(HitResult.Location);
-
-	if (BuildingBase)
+	if (BuildingBase && TargetGrid)
 	{
 		int32 CellID;
 		FGridCoord Location = TargetGrid->GetCoordinateFromRelative(PlacementLocation, CellID);
+
 		if (TargetGrid->IsValidLocation(Location))
 		{
 			FVector CellCenter = TargetGrid->GetCellCenterFromRelative(PlacementLocation, true);
@@ -153,44 +146,57 @@ void AGridsCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 		EnhancedInputComponent->BindAction(CameraHeightAction, ETriggerEvent::Triggered, this,&AGridsCharacter::CameraHeightTriggered);
 
 		
-		/*EnhancedInputComponent->BindAction(RotateAction, ETriggerEvent::Started, this,&AGridsCharacter::RotationStarted);
+		EnhancedInputComponent->BindAction(RotateAction, ETriggerEvent::Started, this,&AGridsCharacter::RotationStarted);
 		EnhancedInputComponent->BindAction(RotateAction, ETriggerEvent::Canceled, this,&AGridsCharacter::RotationCompleted);
-		EnhancedInputComponent->BindAction(RotateAction, ETriggerEvent::Completed, this,&AGridsCharacter::RotationCompleted);*/
-		EnhancedInputComponent->BindAction(RotateAction, ETriggerEvent::Triggered, this, &AGridsCharacter::LookTriggered);
-
+		EnhancedInputComponent->BindAction(RotateAction, ETriggerEvent::Completed, this,&AGridsCharacter::RotationCompleted);
 		
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this,&AGridsCharacter::LookTriggered);
 
+		EnhancedInputComponent->BindAction(LMBAction, ETriggerEvent::Triggered, this, &AGridsCharacter::HandlePlacement);
+
 	}
 	
-	PlayerInputComponent->BindAction("LMBAction", EInputEvent::IE_Pressed, this, &AGridsCharacter::HandlePlacement);
+	
 }
 
 void AGridsCharacter::HandlePlacement() 
 {
+	if (!TargetGrid) return;
+
 	if (BuildingBase)
 	{
-		if (TargetGrid)
+		int32 CellID;
+		FGridCoord Location = TargetGrid->GetCoordinateFromRelative(PlacementLocation, CellID);
+
+		if (TargetGrid->IsValidLocation(Location))
 		{
-			int32 CellID;
-			FGridCoord Location = TargetGrid->GetCoordinateFromRelative(PlacementLocation, CellID);
-			FGridCoord BlockedTile = FGridCoord(Location);
-			TargetGrid->BlockedTiles.Add(BlockedTile);
+			FVector CellCenter = TargetGrid->GetCellCenterFromRelative(PlacementLocation, true);
+            
+			FGridCoord BlockedTile = TargetGrid->GetCoordinateFromRelative(CellCenter, CellID);
+			TargetGrid->BlockedTiles.Add(BlockedTile); 
+
+			BuildingBase->SetActorLocation(CellCenter);
 			BuildingBase->OnPlacementCompleted();
 			BuildingBase = nullptr;
-			return;
 		}
+		return;
 	}
 
 	if (BuildingBaseType && !BuildingBase)
 	{
 		FActorSpawnParameters Params;
 		Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
 		AActor* Spawn = GetWorld()->SpawnActor<AActor>(BuildingBaseType, PlacementLocation, FRotator(0), Params);
 		BuildingBase = Cast<ABuildingBase>(Spawn);
-		BuildingBase->OnPlacementBegin();
+
+		if (BuildingBase)
+		{
+			BuildingBase->OnPlacementBegin();
+		}
 	}
 }
+
 
 void AGridsCharacter::MoveTriggered(const FInputActionValue& InValue)
 {
@@ -222,12 +228,15 @@ void AGridsCharacter::RotationCompleted()
 
 void AGridsCharacter::LookTriggered(const FInputActionValue& InValue)
 {
-	const float RotationInput = InValue.Get<float>();
+	const auto& LookVector = InValue.Get<FVector2D>();
 
-	if (RotationInput != 0.0f)
+	if(bShouldRotate)
 	{
 		FRotator CurrentRotation = GetActorRotation();
-		CurrentRotation.Yaw += RotationSpeed * RotationInput * FApp::GetDeltaTime();
+		CurrentRotation.Pitch += RotationSpeed * FApp::GetDeltaTime() * LookVector.Y;
+		CurrentRotation.Yaw += RotationSpeed * FApp::GetDeltaTime() * LookVector.X;
 		SetActorRotation(CurrentRotation);
 	}
 }
+
+

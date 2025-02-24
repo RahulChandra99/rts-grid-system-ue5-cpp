@@ -79,6 +79,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "RTSCamera")
 	TObjectPtr<UInputAction> LookAction;
 
+	UPROPERTY(EditAnywhere, Category = "RTSCamera")
+	TObjectPtr<UInputAction> LMBAction;
+
 private:
 
 	ABuildingBase* BuildingBase;

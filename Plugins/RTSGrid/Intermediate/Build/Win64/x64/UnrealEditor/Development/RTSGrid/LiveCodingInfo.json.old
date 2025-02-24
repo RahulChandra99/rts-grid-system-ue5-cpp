@@ -2,20 +2,20 @@
 	"RemapUnityFiles": 
 	{
 		"Module.RTSGrid.cpp.obj": [
-			"RTSCameraPawn.gen.cpp.obj",
-			"BuildingBase.cpp.obj",
-			"GridCoordinateLibrary.cpp.obj",
-			"GridCoords.cpp.obj",
-			"GridsCharacter.cpp.obj",
-			"GridSystem.cpp.obj",
-			"RTSGrid.cpp.obj",
 			"BuildingBase.gen.cpp.obj",
 			"GridCoordinateLibrary.gen.cpp.obj",
 			"GridCoords.gen.cpp.obj",
 			"GridsCharacter.gen.cpp.obj",
 			"GridSystem.gen.cpp.obj",
+			"RTSCameraPawn.gen.cpp.obj",
 			"RTSGrid.init.gen.cpp.obj",
-			"RTSCameraPawn.cpp.obj"
+			"BuildingBase.cpp.obj",
+			"GridCoordinateLibrary.cpp.obj",
+			"GridCoords.cpp.obj",
+			"GridSystem.cpp.obj",
+			"RTSCameraPawn.cpp.obj",
+			"RTSGrid.cpp.obj",
+			"GridsCharacter.cpp.obj"
 		]
 	}
 }

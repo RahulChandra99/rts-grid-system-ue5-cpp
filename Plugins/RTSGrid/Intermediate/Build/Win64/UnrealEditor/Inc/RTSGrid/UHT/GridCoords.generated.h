@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define RTSGRID_GridCoords_generated_h
 
-#define FID_udemy_unreal_engine_cpp_101_master_Plugins_RTSGrid_Source_RTSGrid_Public_GridCoords_h_11_GENERATED_BODY \
+#define FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridCoords_h_11_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FGridCoord_Statics; \
 	RTSGRID_API static class UScriptStruct* StaticStruct();
 
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> RTSGRID_API UScriptStruct* StaticStruct<struct FGridCoord>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_udemy_unreal_engine_cpp_101_master_Plugins_RTSGrid_Source_RTSGrid_Public_GridCoords_h
+#define CURRENT_FILE_ID FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RTSGrid_Source_RTSGrid_Public_GridCoords_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

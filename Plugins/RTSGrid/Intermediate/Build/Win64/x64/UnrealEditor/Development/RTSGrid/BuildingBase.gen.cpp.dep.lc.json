@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgrid\\uht\\buildingbase.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\intermediate\\build\\win64\\x64\\rtsplugineditor\\development\\engine\\sharedpch.engine.cpp17.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsgrid\\definitions.rtsgrid.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\source\\rtsgrid\\public\\buildingbase.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\ue 5\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\ue 5\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgrid\\uht\\buildingbase.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

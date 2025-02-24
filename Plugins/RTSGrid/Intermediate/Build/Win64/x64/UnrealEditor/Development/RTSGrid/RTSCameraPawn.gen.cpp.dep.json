@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgrid\\uht\\rtscamerapawn.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\intermediate\\build\\win64\\x64\\rtsplugineditor\\development\\engine\\sharedpch.engine.cpp17.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsgrid\\definitions.rtsgrid.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\source\\rtsgrid\\public\\rtscamerapawn.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\rtsgrid\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgrid\\uht\\rtscamerapawn.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

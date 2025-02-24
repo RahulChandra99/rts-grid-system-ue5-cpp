@@ -74,5 +74,5 @@
 /DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_IDENTIFIER=RTSPlugin
-/fo "C:\Users\Rahul\Downloads\udemy-unreal-engine-cpp-101-master\udemy-unreal-engine-cpp-101-master\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Default.rc2.res"
+/fo "D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

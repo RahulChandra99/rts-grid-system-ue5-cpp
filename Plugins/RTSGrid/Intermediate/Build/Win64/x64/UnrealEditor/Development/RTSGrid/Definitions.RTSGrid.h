@@ -1,4 +1,4 @@
-#include "C:/Users/Rahul/Downloads/udemy-unreal-engine-cpp-101-master/udemy-unreal-engine-cpp-101-master/Intermediate/Build/Win64/x64/RTSPluginEditor/Development/Engine/SharedDefinitions.Engine.Cpp17.InclOrderUnreal5_0.h"
+#include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Intermediate/Build/Win64/x64/RTSPluginEditor/Development/Engine/SharedDefinitions.Engine.Cpp17.InclOrderUnreal5_0.h"
 #undef UE_IS_ENGINE_MODULE
 #undef DEPRECATED_FORGAME
 #define DEPRECATED_FORGAME DEPRECATED
@@ -21,4 +21,5 @@
 #define IMPLEMENT_SIGNING_KEY_REGISTRATION() 
 #define DEPRECATED_FORGAME DEPRECATED
 #define UE_DEPRECATED_FORGAME UE_DEPRECATED
+#define ENHANCEDINPUT_API DLLIMPORT
 #define RTSGRID_API DLLEXPORT

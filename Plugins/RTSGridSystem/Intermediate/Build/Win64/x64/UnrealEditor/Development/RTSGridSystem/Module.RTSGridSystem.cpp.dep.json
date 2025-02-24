@@ -1,0 +1,28 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsgridsystem\\module.rtsgridsystem.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\intermediate\\build\\win64\\x64\\rtsmechanicseditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsgridsystem\\definitions.rtsgridsystem.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\gridcoords.gen.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\public\\gridcoords.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\gridcoords.generated.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\gridfunctionlibrary.gen.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\public\\gridfunctionlibrary.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\gridfunctionlibrary.generated.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\gridsystem.gen.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\public\\gridsystem.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\gridsystem.generated.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsgridsystem\\uht\\rtsgridsystem.init.gen.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\private\\gridcoords.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\private\\gridfunctionlibrary.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\private\\gridsystem.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\private\\rtsgridsystem.cpp",
+            "d:\\gamedevelopment\\unrealengine\\projects\\rtsmechanics\\plugins\\rtsgridsystem\\source\\rtsgridsystem\\public\\rtsgridsystem.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RTSGridSystem-3396.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Intermediate\Build\Win64\x64\RTSMechanicsEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Plugins\RTSGridSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGridSystem\Module.RTSGridSystem.cpp.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Plugins\RTSGridSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGridSystem\Default.rc2.res"
+/OUT:"D:\GameDevelopment\UnrealEngine\Projects\RTSMechanics\Plugins\RTSGridSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGridSystem\UnrealEditor-RTSGridSystem-3396.lib"

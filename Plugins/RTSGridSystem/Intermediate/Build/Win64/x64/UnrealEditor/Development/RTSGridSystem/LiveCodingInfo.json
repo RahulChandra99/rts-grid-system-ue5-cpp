@@ -1,0 +1,15 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.RTSGridSystem.cpp.obj": [
+			"GridCoords.gen.cpp.obj",
+			"GridFunctionLibrary.gen.cpp.obj",
+			"GridSystem.gen.cpp.obj",
+			"RTSGridSystem.init.gen.cpp.obj",
+			"GridCoords.cpp.obj",
+			"GridFunctionLibrary.cpp.obj",
+			"GridSystem.cpp.obj",
+			"RTSGridSystem.cpp.obj"
+		]
+	}
+}

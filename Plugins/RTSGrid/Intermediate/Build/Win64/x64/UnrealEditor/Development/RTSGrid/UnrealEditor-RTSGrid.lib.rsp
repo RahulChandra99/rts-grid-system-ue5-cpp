@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RTSGrid.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Rahul\Downloads\udemy-unreal-engine-cpp-101-master\udemy-unreal-engine-cpp-101-master\Intermediate\Build\Win64\x64\RTSPluginEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
+"C:\Users\Rahul\Downloads\udemy-unreal-engine-cpp-101-master\udemy-unreal-engine-cpp-101-master\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Module.RTSGrid.cpp.obj"
+"C:\Users\Rahul\Downloads\udemy-unreal-engine-cpp-101-master\udemy-unreal-engine-cpp-101-master\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Default.rc2.res"
+/OUT:"C:\Users\Rahul\Downloads\udemy-unreal-engine-cpp-101-master\udemy-unreal-engine-cpp-101-master\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\UnrealEditor-RTSGrid.lib"

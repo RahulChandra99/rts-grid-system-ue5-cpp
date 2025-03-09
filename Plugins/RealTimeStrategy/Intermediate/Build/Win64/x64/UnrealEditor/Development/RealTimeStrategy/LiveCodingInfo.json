@@ -2,11 +2,13 @@
 	"RemapUnityFiles": 
 	{
 		"Module.RealTimeStrategy.cpp.obj": [
+			"RealTimeStrategy.cpp.obj",
 			"ControllerPawn.gen.cpp.obj",
 			"RealTimeStrategy.init.gen.cpp.obj",
+			"RTSBasePawn.gen.cpp.obj",
 			"TopDownPlayerController.gen.cpp.obj",
 			"ControllerPawn.cpp.obj",
-			"RealTimeStrategy.cpp.obj",
+			"RTSBasePawn.cpp.obj",
 			"TopDownPlayerController.cpp.obj"
 		]
 	}

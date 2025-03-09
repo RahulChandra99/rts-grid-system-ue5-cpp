@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\realtimestrategy\\intermediate\\build\\win64\\unrealeditor\\inc\\realtimestrategy\\uht\\topdownplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\intermediate\\build\\win64\\x64\\rtsplugineditor\\development\\engine\\sharedpch.engine.cpp17.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\realtimestrategy\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\realtimestrategy\\definitions.realtimestrategy.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\realtimestrategy\\source\\realtimestrategy\\public\\topdownplayercontroller.h",
+            "d:\\gamedevelopment\\unrealengine\\projects\\turnbased-grid-system-ue5-cpp\\plugins\\realtimestrategy\\intermediate\\build\\win64\\unrealeditor\\inc\\realtimestrategy\\uht\\topdownplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -53,6 +53,17 @@ void AControllerPawn::Move(const FInputActionValue& Value)
 	}
 }
 
+void AControllerPawn::Zoom(const FInputActionValue& Value)
+{
+	const float ZoomDirection = Value.Get<float>();
+	if(Controller)
+	{
+		float DesiredOrthoWidth = CameraComponent->OrthoWidth + (ZoomDirection * CameraZoomSpeed);
+		DesiredOrthoWidth = FMath::Clamp(DesiredOrthoWidth,MinCameraZoom, MaxCameraZoom);
+		CameraComponent->OrthoWidth = DesiredOrthoWidth;
+	}
+}
+
 // Called every frame
 void AControllerPawn::Tick(float DeltaTime)
 {
@@ -68,6 +79,7 @@ void AControllerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 	if(UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AControllerPawn::Move);
+		EnhancedInputComponent->BindAction(ZoomAction, ETriggerEvent::Triggered, this, &AControllerPawn::Zoom);
 	}
 
 }

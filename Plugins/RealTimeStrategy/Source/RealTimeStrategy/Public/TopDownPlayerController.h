@@ -18,7 +18,7 @@ public:
 	ATopDownPlayerController();
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
-	class UInputMappingContext* InputMappingContext;
+	TObjectPtr<class UInputMappingContext> InputMappingContext;
 
 
 

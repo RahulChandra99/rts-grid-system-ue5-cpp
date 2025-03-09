@@ -14,11 +14,16 @@ ARTSBasePawn::ARTSBasePawn()
 
 	CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
 	RootComponent = CapsuleComponent;
+	CapsuleComponent->SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 
 	SkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMesh"));
 	SkeletalMesh->SetupAttachment(RootComponent);
  
 	FloatingMovementComponent = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("FloatingMovementComponent"));
+
+	SelectedIndicator = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SelectedIndicator"));
+	SelectedIndicator->SetupAttachment(RootComponent);
+	SelectedIndicator->SetHiddenInGame(true);
 	
 }
 
@@ -41,5 +46,10 @@ void ARTSBasePawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ARTSBasePawn::SelectActor_Implementation(const bool Select)
+{
+	SelectedIndicator->SetHiddenInGame(!Select);
 }
 

@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeRealTimeStrategy_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xA219A920,
-				0xC0420C9A,
+				0x5101DD95,
+				0x88161FCE,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_RealTimeStrategy.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_RealTimeStrategy.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_RealTimeStrategy(Z_Construct_UPackage__Script_RealTimeStrategy, TEXT("/Script/RealTimeStrategy"), Z_Registration_Info_UPackage__Script_RealTimeStrategy, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xA219A920, 0xC0420C9A));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_RealTimeStrategy(Z_Construct_UPackage__Script_RealTimeStrategy, TEXT("/Script/RealTimeStrategy"), Z_Registration_Info_UPackage__Script_RealTimeStrategy, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x5101DD95, 0x88161FCE));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

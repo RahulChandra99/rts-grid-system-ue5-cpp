@@ -9,7 +9,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTopDownPlayerController() {}
 // Cross Module References
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
+	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	REALTIMESTRATEGY_API UClass* Z_Construct_UClass_ATopDownPlayerController();
 	REALTIMESTRATEGY_API UClass* Z_Construct_UClass_ATopDownPlayerController_NoRegister();
@@ -33,6 +35,14 @@ void EmptyLinkFunctionForGeneratedCodeTopDownPlayerController() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputMappingContext_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_InputMappingContext;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectAction_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_SelectAction;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedActor_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_SelectedActor;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -59,8 +69,24 @@ void EmptyLinkFunctionForGeneratedCodeTopDownPlayerController() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_InputMappingContext = { "InputMappingContext", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, InputMappingContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_InputMappingContext_MetaData), Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_InputMappingContext_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectAction_MetaData[] = {
+		{ "AllowPrivateAccess", "TRUE" },
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "Public/TopDownPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectAction = { "SelectAction", nullptr, (EPropertyFlags)0x0044000000000015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, SelectAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectAction_MetaData), Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectAction_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectedActor_MetaData[] = {
+		{ "ModuleRelativePath", "Public/TopDownPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectedActor = { "SelectedActor", nullptr, (EPropertyFlags)0x0044000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, SelectedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectedActor_MetaData), Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectedActor_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATopDownPlayerController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_InputMappingContext,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_SelectedActor,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ATopDownPlayerController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ATopDownPlayerController>::IsAbstract,
@@ -100,9 +126,9 @@ void EmptyLinkFunctionForGeneratedCodeTopDownPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RealTimeStrategy_Source_RealTimeStrategy_Public_TopDownPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ATopDownPlayerController, ATopDownPlayerController::StaticClass, TEXT("ATopDownPlayerController"), &Z_Registration_Info_UClass_ATopDownPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATopDownPlayerController), 3759299374U) },
+		{ Z_Construct_UClass_ATopDownPlayerController, ATopDownPlayerController::StaticClass, TEXT("ATopDownPlayerController"), &Z_Registration_Info_UClass_ATopDownPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATopDownPlayerController), 3159237851U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RealTimeStrategy_Source_RealTimeStrategy_Public_TopDownPlayerController_h_1056425729(TEXT("/Script/RealTimeStrategy"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RealTimeStrategy_Source_RealTimeStrategy_Public_TopDownPlayerController_h_199086815(TEXT("/Script/RealTimeStrategy"),
 		Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RealTimeStrategy_Source_RealTimeStrategy_Public_TopDownPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GameDevelopment_UnrealEngine_Projects_turnbased_grid_system_ue5_cpp_Plugins_RealTimeStrategy_Source_RealTimeStrategy_Public_TopDownPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

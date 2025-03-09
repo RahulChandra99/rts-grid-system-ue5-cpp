@@ -3,11 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SelectableInterface.h"
 #include "GameFramework/Pawn.h"
 #include "RTSBasePawn.generated.h"
 
+
 UCLASS()
-class REALTIMESTRATEGY_API ARTSBasePawn : public APawn
+class REALTIMESTRATEGY_API ARTSBasePawn : public APawn, public ISelectableInterface
 {
 	GENERATED_BODY()
 
@@ -22,9 +24,11 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Player", meta = (AllowPrivateAccess = true))
 	TObjectPtr<USkeletalMeshComponent> SkeletalMesh;
 	
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Player", meta = (AllowPrivateAccess = true))
 	TObjectPtr<class UFloatingPawnMovement> FloatingMovementComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Player", meta = (AllowPrivateAccess = true))
+	TObjectPtr<UStaticMeshComponent> SelectedIndicator;
 	
 
 protected:
@@ -38,4 +42,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION()
+	void SelectActor_Implementation(const bool Select) override;
 };

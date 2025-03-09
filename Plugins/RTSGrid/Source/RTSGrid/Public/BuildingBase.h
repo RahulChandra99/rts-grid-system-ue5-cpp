@@ -38,6 +38,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Placeable")
 	class UStaticMeshComponent* StaticMesh;
+	
+	
+
+	
 
 protected:
 	// Called when the game starts or when spawned

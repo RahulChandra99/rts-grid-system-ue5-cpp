@@ -14,7 +14,10 @@ ABuildingBase::ABuildingBase()
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	StaticMesh->SetupAttachment(GetRootComponent());
+	
 }
+
+
 
 // Called when the game starts or when spawned
 void ABuildingBase::BeginPlay()
@@ -34,6 +37,8 @@ void ABuildingBase::Tick(float DeltaTime)
 void ABuildingBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	
 
 }
 

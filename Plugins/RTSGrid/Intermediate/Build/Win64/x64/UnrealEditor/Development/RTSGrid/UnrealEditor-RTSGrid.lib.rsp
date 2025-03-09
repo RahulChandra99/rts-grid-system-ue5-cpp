@@ -8,8 +8,6 @@
 /NODEFAULTLIB
 "D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Intermediate\Build\Win64\x64\RTSPluginEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
 "D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Module.RTSGrid.cpp.obj"
-"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\GridsCharacter.cpp.obj"
-"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\GridsCharacter.gen.cpp.obj"
-"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\RTSGrid.init.gen.cpp.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\BuildingBase.cpp.obj"
 "D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Default.rc2.res"
 /OUT:"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\UnrealEditor-RTSGrid.lib"

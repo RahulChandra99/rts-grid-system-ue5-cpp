@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RealTimeStrategy-0001.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Intermediate\Build\Win64\x64\RTSPluginEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RealTimeStrategy\Intermediate\Build\Win64\x64\UnrealEditor\Development\RealTimeStrategy\Module.RealTimeStrategy.cpp.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RealTimeStrategy\Intermediate\Build\Win64\x64\UnrealEditor\Development\RealTimeStrategy\Default.rc2.res"
+/OUT:"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RealTimeStrategy\Intermediate\Build\Win64\x64\UnrealEditor\Development\RealTimeStrategy\UnrealEditor-RealTimeStrategy-0001.lib"

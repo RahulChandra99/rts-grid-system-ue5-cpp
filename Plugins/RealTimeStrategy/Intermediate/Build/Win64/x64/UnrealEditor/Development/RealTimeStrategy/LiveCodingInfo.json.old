@@ -1,0 +1,11 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.RealTimeStrategy.cpp.obj": [
+			"ControllerPawn.gen.cpp.obj",
+			"RealTimeStrategy.init.gen.cpp.obj",
+			"ControllerPawn.cpp.obj",
+			"RealTimeStrategy.cpp.obj"
+		]
+	}
+}

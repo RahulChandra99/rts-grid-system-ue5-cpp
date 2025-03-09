@@ -5,17 +5,17 @@
 			"BuildingBase.gen.cpp.obj",
 			"GridCoordinateLibrary.gen.cpp.obj",
 			"GridCoords.gen.cpp.obj",
+			"GridsCharacter.gen.cpp.obj",
 			"GridSystem.gen.cpp.obj",
 			"RTSCameraPawn.gen.cpp.obj",
-			"BuildingBase.cpp.obj",
+			"RTSGrid.init.gen.cpp.obj",
 			"GridCoordinateLibrary.cpp.obj",
 			"GridCoords.cpp.obj",
+			"GridsCharacter.cpp.obj",
 			"GridSystem.cpp.obj",
 			"RTSCameraPawn.cpp.obj",
 			"RTSGrid.cpp.obj",
-			"GridsCharacter.gen.cpp.obj",
-			"RTSGrid.init.gen.cpp.obj",
-			"GridsCharacter.cpp.obj"
+			"BuildingBase.cpp.obj"
 		]
 	}
 }

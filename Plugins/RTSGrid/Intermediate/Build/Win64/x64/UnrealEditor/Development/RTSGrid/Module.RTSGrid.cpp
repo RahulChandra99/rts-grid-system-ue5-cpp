@@ -6,6 +6,7 @@
 #include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Intermediate/Build/Win64/UnrealEditor/Inc/RTSGrid/UHT/GridSystem.gen.cpp"
 #include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Intermediate/Build/Win64/UnrealEditor/Inc/RTSGrid/UHT/RTSCameraPawn.gen.cpp"
 #include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Intermediate/Build/Win64/UnrealEditor/Inc/RTSGrid/UHT/RTSGrid.init.gen.cpp"
+#include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Source/RTSGrid/Private/BuildingBase.cpp"
 #include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Source/RTSGrid/Private/GridCoordinateLibrary.cpp"
 #include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Source/RTSGrid/Private/GridCoords.cpp"
 #include "D:/GameDevelopment/UnrealEngine/Projects/turnbased-grid-system-ue5-cpp/Plugins/RTSGrid/Source/RTSGrid/Private/GridsCharacter.cpp"

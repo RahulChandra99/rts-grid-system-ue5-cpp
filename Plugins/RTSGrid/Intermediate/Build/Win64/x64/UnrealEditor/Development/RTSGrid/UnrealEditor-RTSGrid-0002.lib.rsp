@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RTSGrid-0002.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Intermediate\Build\Win64\x64\RTSPluginEditor\Development\Engine\SharedPCH.Engine.Cpp17.InclOrderUnreal5_0.h.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Module.RTSGrid.cpp.obj"
+"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\Default.rc2.res"
+/OUT:"D:\GameDevelopment\UnrealEngine\Projects\turnbased-grid-system-ue5-cpp\Plugins\RTSGrid\Intermediate\Build\Win64\x64\UnrealEditor\Development\RTSGrid\UnrealEditor-RTSGrid-0002.lib"
